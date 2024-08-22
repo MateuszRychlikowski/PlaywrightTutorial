@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightPractice", "PlaywrightPractice.csproj", "{E5D530EC-FB92-4C2B-927C-879179FE2BDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaywrightPractice", "PlaywrightPractice.csproj", "{E5D530EC-FB92-4C2B-927C-879179FE2BDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomatedTestsConfigs", "..\AutomatedTestsConfigs\AutomatedTestsConfigs.csproj", "{16E908F5-0FD7-4805-B993-11C16C79FA97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E5D530EC-FB92-4C2B-927C-879179FE2BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5D530EC-FB92-4C2B-927C-879179FE2BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5D530EC-FB92-4C2B-927C-879179FE2BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E908F5-0FD7-4805-B993-11C16C79FA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E908F5-0FD7-4805-B993-11C16C79FA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E908F5-0FD7-4805-B993-11C16C79FA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E908F5-0FD7-4805-B993-11C16C79FA97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
