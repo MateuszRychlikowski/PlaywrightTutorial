@@ -9,6 +9,7 @@ namespace PlaywrightPractice
         [Test]
         public async Task HomepageHasPlaywrightInTitleAndGetStartedLinkLinkingtoTheIntroPage()
         {
+            await Page.ClickAsync("id=loginLink");
         }
     }
 }

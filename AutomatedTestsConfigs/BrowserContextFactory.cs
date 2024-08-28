@@ -7,19 +7,6 @@ namespace AutomatedTestsConfigs
     {
         public static async Task<IBrowserContext> GetBrowserContext(AppSettings appSettings)
         {
-            switch (appSettings.TestEnvironment)
-            {
-                case TestEnvironments.Chrome:
-                    return await GetChromeBrowserContext();
-                case TestEnvironments.Firefox:
-                    return await GetFirefoxBrowserContext();
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        private static async Task<IBrowserContext> GetChromeBrowserContext()
-        {
             var playwrightDriver = await Playwright.CreateAsync();
 
             var browserOption = new BrowserTypeLaunchOptions
@@ -27,27 +14,23 @@ namespace AutomatedTestsConfigs
                 Headless = false,
             };
 
-            var chrome = await playwrightDriver.Chromium.LaunchAsync(browserOption);
+            var browser = await GetBrowser(playwrightDriver, appSettings.TestEnvironment, browserOption);
 
-            var browserContext = await chrome.NewContextAsync();
+            var browserContext = await browser.NewContextAsync();
 
             return browserContext;
         }
 
-        private static async Task<IBrowserContext> GetFirefoxBrowserContext()
+
+        private static async Task<IBrowser> GetBrowser(IPlaywright playwrightDriver, TestEnvironments environment,
+            BrowserTypeLaunchOptions browserOption)
         {
-            var playwrightDriver = await Playwright.CreateAsync();
-
-            var browserOption = new BrowserTypeLaunchOptions
+            return environment switch
             {
-                Headless = false,
+                TestEnvironments.Chrome => await playwrightDriver.Chromium.LaunchAsync(browserOption),
+                TestEnvironments.Firefox => await playwrightDriver.Firefox.LaunchAsync(browserOption),
+                _ => throw new ArgumentOutOfRangeException()
             };
-
-            var chrome = await playwrightDriver.Firefox.LaunchAsync(browserOption);
-
-            var browserContext = await chrome.NewContextAsync();
-
-            return browserContext;
         }
     }
 }

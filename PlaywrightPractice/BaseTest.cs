@@ -10,13 +10,14 @@ namespace PlaywrightPractice
 {
     public class BaseTest
     {
+        protected IPage? Page { get; private set; }
+
         [SetUp]
         public async Task Setup()
         {
             var browserContext = BrowserContextFactory.GetBrowserContext(ConfigManager.AppSettings).Result;
-            var page = await browserContext.NewPageAsync();
-
-            await page.GotoAsync("http://eaapp.some.com");
+            Page = await browserContext.NewPageAsync();
+            await Page.GotoAsync("http://eaapp.somee.com");
         }
     }
 }
